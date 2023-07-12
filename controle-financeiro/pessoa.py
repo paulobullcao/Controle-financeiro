@@ -6,12 +6,39 @@ class Pessoa:
         self.cpf = cpf  
         self.renda = renda  
 
+    ''' Métodos para obter e setar valores'''
+    def get_cpf(self):
+        return self.cpf
+
+    def set_cpf(self, valor):
+        self.cpf = valor
+
+    def get_nome(self):
+        return self.nome
+
+    def set_nome(self, valor):
+        self.nome = valor
+
+    def get_nascimento(self):
+        return self.nascimento
+
+    def set_nascimento(self, valor):
+        self.nascimento = valor
+
+    def get_profissao(self):
+        return self.profissao
+
+    def set_profissao(self, valor):
+        self.profissao =  valor
+
+    def get_renda(self):
+        return self.renda
+
+    def set_renda(self, valor):
+        self.renda = valor
 
     def inf(self):
 
         return(f'nome: {self.nome}\nData de nascimento: {self.nascimento}\nProfissão: {self.profissao}\nCPF: {self.cpf}Renda: {self.renda}')
 
 #pessoa teste
-p1 = Pessoa('carlos sergio','1987-05-21','auxiliar de motorista','04852845530','1.450')
-
-print(p1.inf())
