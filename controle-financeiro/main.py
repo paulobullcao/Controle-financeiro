@@ -1,8 +1,9 @@
-from pessoa import Pessoa, cadastro
+from pessoa import  Pessoa, cadastro
+from financeiro import dados_conta
 
 caminho_arquivo = 'dados_clientes.txt'
 while True:
-    escolha = int(input('Informe uma opção:\n1 - Cadastrar\n2 - Listar informações do seu cadastro\n3 -exibir seus gastos '))
+    escolha = int(input('Informe uma opção:\n1 - Cadastrar\n2 - Listar informações do seu cadastro\n3 - exibir seus gastos \n'))
     if escolha == 1:
         nome = input('Informe o seu nome: ').strip()
         nascimento = input('Informe a data do seu nascimento: ').strip()
@@ -17,3 +18,18 @@ while True:
             for pessoa in resultado:
                 arquivo.write(pessoa.inf() + '\n')
             arquivo.write(' ') 
+    elif escolha == 2: 
+        gasto = float(input('Informe os seus gastos:  ')) 
+        print('Deseja inserir algum valor a sua conta?  ')
+        escolha = input('S/sim ou N/não: ').startswith('s')
+        if escolha == True:
+            entrada = float(input('Informe o valor a ser creditado na sua conta: '))
+        else: 
+            entrada = 0 
+        dados_conta(gasto, entrada)
+        resultado = dados_conta(gasto, entrada)
+        for status in resultado:
+            print(status.inf())
+
+        
+        

@@ -1,15 +1,31 @@
-class financeiro:
-    def __init__(self,saldo, renda, gasto, entrada):
-        self.saldo = saldo 
-        self.renda = renda
+from pessoa import Pessoa
+class Financeiro:
+    def __init__(self, gasto, entrada):
         self.gasto = gasto
-        self.entradas = entrada
+        self.entrada = entrada
 
     def status(self):
-        if self.saldo  <= 0:
+        saldo = self.renda - self.gasto
+        if saldo  <= 0:
             print('Sem saldo disponível.') 
-        elif self.saldo > 0: 
-            print(f'Você possui um saldo de {self.saldo} em conta. ')  
+        elif saldo > 0: 
+            print(f'Você possui um saldo de {saldo} em conta. ')  
+        return saldo
     
     def gastos(self):
-        print(f'O valor dos seus gastos atualmente está em {self.gasto}')
+        gasto = [ ]
+        gasto.append(self.gasto)
+        for n in gasto: 
+            print(f'O valor dos seus gastos atualmente está em: {n}')
+        return gasto
+
+    def inf(self):
+        return(f'Gastos: {self.gasto}\nEntrada:  {self.entrada}\n')
+
+def dados_conta(gasto, entrada):
+    status = []
+    p1 = Financeiro(gasto, entrada)
+    status.append(p1)
+
+    return status
+
