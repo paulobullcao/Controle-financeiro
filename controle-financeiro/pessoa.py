@@ -1,7 +1,7 @@
 import json
 caminho_arquivo = 'dados_clientes.json'
 class Pessoa: 
-    def __init__(self, nome, nascimento, profissao,cpf, renda):
+    def __init__(self, nome, nascimento, profissao, cpf, renda):
         self.nome = nome  
         self.nascimento = nascimento  
         self.profissao= profissao  
@@ -41,11 +41,9 @@ class Pessoa:
 
     def inf(self):
         return(f'nome: {self.nome}\nData de nascimento: {self.nascimento}\nProfissão: {self.profissao}\nCPF: {self.cpf}\nRenda: {self.renda}')
+    
     def salvar_cliente(self):
         resultado = cadastro(self.nome,self.nascimento,self.profissao,self.cpf,self.renda)
-        for pessoa in resultado:
-            print(pessoa.inf())
-            x = ('pressione enter...')
         with open(caminho_arquivo, 'a') as arquivo:
             for pessoa in resultado:
                 json.dump(vars(pessoa), arquivo, ensure_ascii= False, indent = 2)
@@ -53,5 +51,4 @@ class Pessoa:
 def cadastro(nome, nascimento,profissao, cpf, renda):
     cadastradas = []
     p = Pessoa(nome, nascimento, profissao, cpf, renda)
-    cadastradas.append(p)
     return cadastradas

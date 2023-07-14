@@ -1,5 +1,5 @@
-from pessoa import  Pessoa, cadastro
-from financeiro import dados_conta
+from pessoa import  Pessoa
+from financeiro import dados_conta, Financeiro
 import json
 caminho_arquivo = 'dados_clientes.json'
 import os
@@ -17,7 +17,7 @@ def leitura_dados():
 
 def menu():
     while True:
-        escolha = int(input('Informe uma opção:\n1 - Cadastrar\n2 - Listar informações do seu cadastro\n3 - exibir seus gastos \n'))
+        escolha = int(input('Informe uma opção:\n1 - Cadastrar cliente \n2 - cadastar gastos e entradas\n3 - Listar informações da sua conta\n'))
         if escolha == 1:
             os.system('cls')
             nome = input('Informe o seu nome: ').strip()
@@ -31,15 +31,18 @@ def menu():
         elif escolha == 2: 
             os.system('cls')
             gasto = float(input('Informe os seus gastos:  ')) 
+            data = input('informe a data: ')
             print('Deseja inserir algum valor a sua conta?  ')
             escolha = input('S/sim ou N/não: ').startswith('s')
-            if escolha == True:
-                os.system('cls')
-                entrada = float(input('Informe o valor a ser creditado na sua conta: '))
+            if escolha == True: 
+                entrada = float(input('informe o valor a ser creditado: '))
             else: 
                 entrada = 0 
-            dados_conta(gasto, entrada)
-            resultado = dados_conta(gasto, entrada)
+            f = Financeiro(gasto, entrada, data)
+            f.salvar_inf()
+            os.system('cls')
+            dados_conta(gasto, entrada, data)
+            resultado = dados_conta(gasto, entrada, data)
             for status in resultado:
                 os.system('cls')
                 print(status.inf())
@@ -49,7 +52,7 @@ def menu():
             print('')
             x  = input('pressione enter para continuar....')
             os.system('cls')
-            menu()
+            continue
 menu()
 
             
