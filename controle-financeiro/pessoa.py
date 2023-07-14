@@ -38,13 +38,11 @@ class Pessoa:
         self.renda = valor
 
     def inf(self):
-
         return(f'nome: {self.nome}\nData de nascimento: {self.nascimento}\nProfissão: {self.profissao}\nCPF: {self.cpf}\nRenda: {self.renda}')
 
 def cadastro(nome, nascimento,profissao, cpf, renda):
     cadastradas = []
-    p1 = Pessoa(nome, nascimento, profissao, cpf, renda)
-    cadastradas.append(p1)
-    
-    return cadastradas
+    p = Pessoa(nome, nascimento, profissao, cpf, renda)
+    cadastradas.append(p)
 
+    return cadastradas
