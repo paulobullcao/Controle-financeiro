@@ -25,15 +25,9 @@ def menu():
             profissao = input('Informe a sua profissão: ').strip()
             cpf = int(input('Informe o seu CPF: '))
             renda = float(input('Informe a sua renda: '))
+            p = Pessoa(nome, nascimento, profissao, cpf, renda)
+            p.salvar_cliente()
             os.system('cls')
-            cadastro(nome, nascimento,profissao, cpf, renda)
-            resultado = cadastro(nome, nascimento,profissao, cpf, renda)
-            for pessoa in resultado:
-                print(pessoa.inf())
-                x = ('pressione enter...')
-            with open(caminho_arquivo, 'a') as arquivo:
-                for pessoa in resultado:
-                    json.dump(vars(pessoa), arquivo, ensure_ascii= False, indent = 2)
         elif escolha == 2: 
             os.system('cls')
             gasto = float(input('Informe os seus gastos:  ')) 
