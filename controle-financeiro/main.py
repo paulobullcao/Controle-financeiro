@@ -41,11 +41,6 @@ def menu():
             f = Financeiro(gasto, entrada, data)
             f.salvar_inf()
             os.system('cls')
-            dados_conta(gasto, entrada, data)
-            resultado = dados_conta(gasto, entrada, data)
-            for status in resultado:
-                os.system('cls')
-                print(status.inf())
         elif escolha == 3:
             os.system('cls')
             leitura_dados() 
