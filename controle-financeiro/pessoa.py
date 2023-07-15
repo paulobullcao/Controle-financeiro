@@ -41,14 +41,26 @@ class Pessoa:
 
     def inf(self):
         return(f'nome: {self.nome}\nData de nascimento: {self.nascimento}\nProfissão: {self.profissao}\nCPF: {self.cpf}\nRenda: {self.renda}')
-    
+        
     def salvar_cliente(self):
         resultado = cadastro(self.nome,self.nascimento,self.profissao,self.cpf,self.renda)
         with open(caminho_arquivo, 'a') as arquivo:
             for pessoa in resultado:
                 json.dump(vars(pessoa), arquivo, ensure_ascii= False, indent = 2)
+    
+    def leitura_dados():
+        leitura = []
+        print('Informações cadastradas:\n')
+        with open(caminho_arquivo, 'r') as arquivo:
+            pessoas= json.load(arquivo)
+            p1 = Pessoa(**pessoas)
+            leitura.append(p)
+            print(p1.inf())
+            return 
 
-def cadastro(nome, nascimento,profissao, cpf, renda):
+
+def cadastro(nome, nascimento, profissao, cpf, renda):
     cadastradas = []
     p = Pessoa(nome, nascimento, profissao, cpf, renda)
+    cadastradas.append(p)
     return cadastradas

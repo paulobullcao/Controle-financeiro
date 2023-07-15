@@ -30,6 +30,7 @@ class Financeiro:
         with open(caminho_arquivo, 'a') as arquivo:
             for pessoa in resultado:
                 json.dump(vars(pessoa), arquivo, ensure_ascii= False, indent = 2)
+
 def dados_conta(gasto, entrada, data):
     status = []
     p1 = Financeiro(gasto, entrada, data)

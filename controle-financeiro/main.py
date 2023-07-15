@@ -23,15 +23,22 @@ def menu():
             nome = input('Informe o seu nome: ').strip()
             nascimento = input('Informe a data do seu nascimento: ').strip()
             profissao = input('Informe a sua profissão: ').strip()
-            cpf = int(input('Informe o seu CPF: '))
+            cpf = input('Informe o seu CPF: ')
+            if len(cpf) != 11:
+                while True:
+                    print('O CPF informado é inválido!\nInforme corretamente o seu CPF') 
+                    cpf = input('Informe o seu CPF: ')
+                    if len(cpf) == 11: 
+                        break
             renda = float(input('Informe a sua renda: '))
-            p = Pessoa(nome, nascimento, profissao, cpf, renda)
+            p = Pessoa(nome, nascimento, profissao, int(cpf), renda)
             p.salvar_cliente()
             os.system('cls')
         elif escolha == 2: 
             os.system('cls')
             gasto = float(input('Informe os seus gastos:  ')) 
             data = input('informe a data: ')
+            os.system('cls')
             print('Deseja inserir algum valor a sua conta?  ')
             escolha = input('S/sim ou N/não: ').startswith('s')
             if escolha == True: 
