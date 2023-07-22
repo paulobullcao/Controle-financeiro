@@ -1,13 +1,7 @@
 {
-  "nome": "joao felipe",
-  "nascimento": "25041968",
-  "profissao": "gerente financeiro",
-  "cpf": 556552236583,
-  "renda": 10000.0
-},{
-  "nome": "luiz valad�o",
-  "nascimento": "15041965",
-  "profissao": "leitor",
-  "cpf": 25445665889,
-  "renda": 1800.0
+  "nome": "lenadro",
+  "profissao": "marinheiro",
+  "nascimento": "25121995",
+  "cpf": 77889556889,
+  "renda": 2500.0
 }

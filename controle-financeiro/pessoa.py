@@ -1,12 +1,12 @@
 import json
 caminho_arquivo = 'dados_clientes.json'
 class Pessoa: 
-    def __init__(self, nome, nascimento, profissao, cpf, renda):
+    def __init__(self, nome, nascimento,profissao, cpf, renda):
         self.nome = nome  
-        self.nascimento = nascimento  
-        self.profissao= profissao  
-        self.cpf = cpf  
-        self.renda = renda  
+        self.profissao = profissao
+        self.nascimento = nascimento
+        self.cpf = cpf
+        self.renda = renda
 
     ''' Métodos para obter e setar valores'''
     def get_cpf(self):
@@ -54,7 +54,7 @@ class Pessoa:
         with open(caminho_arquivo, 'r') as arquivo:
             pessoas= json.load(arquivo)
             p1 = Pessoa(**pessoas)
-            leitura.append(p)
+            leitura.append(p1)
             print(p1.inf())
             return 
 
